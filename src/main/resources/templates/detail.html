@@ -23,14 +23,14 @@
   <div class="container-fluid">
     <div class="d-flex justify-content-start align-items-center">
       <div class="logo">
-        <a href="./course-list.html">
+        <a th:href="@{/courses}">
           <img src="https://techmaster.vn/resources/image/logo-techmaster/white/white_200x74.png"
                alt="logo">
         </a>
       </div>
       <div class="menu">
-        <a class="text-white text-uppercase ms-5" th:href="@{/api/v1/courses/onlab}">Phòng lab</a>
-        <a class="text-white text-uppercase ms-3" th:href="@{/api/v1/courses/online}">Trực tuyến</a>
+        <a class="text-white text-uppercase ms-5" th:href="@{/courses/onlab}">Phòng lab</a>
+        <a class="text-white text-uppercase ms-3" th:href="@{/courses/online}">Trực tuyến</a>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@
         <div class="mb-4">
           <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./course-list.html">Khóa học</a></li>
+              <li class="breadcrumb-item"><a th:href="@{/courses}">Khóa học</a></li>
               <li class="breadcrumb-item active" aria-current="page" th:text="${course.name}">Lập trình di động IOS Swift
                 online</li>
             </ol>
@@ -61,17 +61,24 @@
                    th:alt="${course.userDto.name}" class="rounded-circle me-3">
             </div>
             <div class="supporter-info">
-              <p th:text="${course.userDto.name}">
+<!--              <p th:inline="text">-->
+<!--                <b>Tư vấn viên :</b> [[${course.userDto.name}]]-->
+<!--              </p>-->
+<!--              <p th:utext="'<b>Tư vấn viên :</b> ' + ${course.userDto.name}">-->
+<!--                <b>Tư vấn viên :</b>-->
+<!--                Phạm Thị Mẫn-->
+<!--              </p>-->
+              <p>
                 <b>Tư vấn viên :</b>
-                Phạm Thị Mẫn
+                <th:block th:text="${course.userDto.name}"></th:block>
               </p>
-              <p th:text="${course.userDto.email}">
+              <p>
                 <b>Email :</b>
-                manpham@gmail.com
+                <th:block th:text="${course.userDto.email}"></th:block>
               </p>
-              <p class="mb-0" th:text="${course.userDto.phone}">
+              <p class="mb-0">
                 <b>Số điện thoại :</b>
-                0987654321
+                <th:block th:text="${course.userDto.phone}"></th:block>
               </p>
             </div>
           </div>

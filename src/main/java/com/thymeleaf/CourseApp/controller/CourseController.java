@@ -15,7 +15,7 @@ import java.util.List;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/api/v1/courses")
+@RequestMapping("/courses")
 public class CourseController {
     @Autowired
     private CourseService courseService;
